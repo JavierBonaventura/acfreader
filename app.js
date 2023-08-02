@@ -6,7 +6,7 @@ const nombres = require('./nombres');
 const app = express();
 const port = 3000;
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: './uploads/' });
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
