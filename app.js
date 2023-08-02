@@ -193,3 +193,6 @@ function readFileAsync(file) {
 app.listen(port, () => {
   console.log(`Aplicación corriendo en http://localhost:${port}`);
 });
+
+
+module.exports = app;
