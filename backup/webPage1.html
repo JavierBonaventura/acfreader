@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 8px;
+    }
+</style>
+</head>
+<body>
+    <h1 id="header-title"></h1>
+
+    <table id="resultados-table">
+        <thead>
+            <tr>
+                <th>enumerativoNumber</th>
+                <th>enumerativo</th>
+                <th>OdM</th>
+                <th>Dimension</th>
+                <th>valore</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const resultados = [
+            { Header: '0100000000003b00' },
+            {
+                enumerativo: 'DEF_ODM_AUTO',
+                OdM: 1,
+                Dimension: 5,
+                valore: 2,
+                enumerativoNumber: 281
+            },
+            {
+                enumerativo: 'DEF_INCL',
+                OdM: 1,
+                Dimension: 5,
+                valore: 1,
+                enumerativoNumber: 18
+            },
+            {
+                enumerativo: 'DEF_SN',
+                OdM: 1,
+                Dimension: 5,
+                valore: 0,
+                enumerativoNumber: 124
+            },
+            {
+                enumerativo: 'DEF_SA',
+                OdM: 1,
+                Dimension: 5,
+                valore: 1,
+                enumerativoNumber: 125
+            },
+            {
+                enumerativo: '"CV \t"',
+                OdM: 1,
+                Dimension: 5,
+                valore: 0,
+                enumerativoNumber: 126
+            },
+            {
+                enumerativo: 'INIT_AP',
+                OdM: 1,
+                Dimension: 5,
+                valore: 0,
+                enumerativoNumber: 127
+            },
+            {
+                enumerativo: 'RR',
+                OdM: 1,
+                Dimension: 5,
+                valore: 0,
+                enumerativoNumber: 128
+            }
+        ];
+
+        // Get the table body element
+        const tableBody = document.querySelector('#resultados-table tbody');
+
+        // Set the header title dynamically
+        const headerTitle = document.getElementById('header-title');
+        headerTitle.textContent = `Header: ${resultados[0].Header}`;
+
+        // Rearrange the order of keys for each row
+        const keyOrder = ['enumerativoNumber', 'enumerativo', 'OdM', 'Dimension', 'valore'];
+
+        // Loop through the resultados array and create table rows
+        resultados.slice(1).forEach((item) => {
+            const row = document.createElement('tr');
+            keyOrder.forEach((key) => {
+                const cell = document.createElement('td');
+                cell.textContent = item[key];
+                row.appendChild(cell);
+            });
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
